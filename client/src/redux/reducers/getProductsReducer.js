@@ -1,4 +1,3 @@
-import { CardActionArea } from "@material-ui/core";
 import * as actionType from '../constants/productConst.js'
 
 export function getProductsReducer(state = { products: [] }, action) {
@@ -14,7 +13,7 @@ export function getProductsReducer(state = { products: [] }, action) {
 export function getProductsDetailsReducer(state = { product: {} }, action) {
     switch (action.type) {
         case actionType.GET_PRODUCT_DETAILS_SUCCESS:
-            return { products: action.payload }
+            return { product: action.payload }
         case actionType.GET_PRODUCT_DETAILS_FAIL:
             return { error: action.payload }
         default:

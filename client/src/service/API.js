@@ -16,3 +16,10 @@ export const authenticateLogin = async(user) => {
         console.log('Error while calling signup', error.message);
     }
 }
+export const getProductById = async(id) => {
+    try {
+        return await axios.get(`${url}/product/${id}`);
+    } catch (error) {
+        console.log('Error while calling product by id');
+    }
+}
