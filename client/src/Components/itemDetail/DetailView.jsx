@@ -47,7 +47,6 @@ const DetailView=({ match ,history})=> {
     const dispatch = useDispatch();
     useEffect(() => {
     dispatch(getProductDetails(match.params.id));
-    console.log(JSON.stringify(product));
     }, [dispatch]);
     const fassured = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/fa_62673a.png'
     return (
