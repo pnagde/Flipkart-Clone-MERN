@@ -14,10 +14,7 @@ export const productActions = () => async(dispatch) => {
 }
 export const getProductDetails = (id) => async(dispatch) => {
     try {
-        console.log("Start product fetching");
         const { data } = await axios.get(`${url}/product/${id}`);
-        console.log(data);
-        console.log("Done");
         dispatch({ type: action.GET_PRODUCT_DETAILS_SUCCESS, payload: data });
     } catch (error) {
         dispatch({ type: action.GET_PRODUCT_DETAILS_FAIL, payload: error.response });

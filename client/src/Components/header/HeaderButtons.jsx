@@ -51,7 +51,7 @@ export default function HeaderButtons() {
                     <Button className={classes.login} onClick={()=>openLoginDialog()} variant="contained">Login</Button>
                 </Link>
             }
-            <Typography style={{marginTop:5}}>More<DownIcon style={{fontSize:15}}/></Typography>
+            <Typography style={{marginTop:5,cursor:'pointer'}}>More<DownIcon style={{fontSize:15}}/></Typography>
             <Link to="/cart" className={classes.container}>
                 <Badge badgeContent={4} color="error">
                     <ShoppingCartIcon />
