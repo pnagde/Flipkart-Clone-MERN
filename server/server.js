@@ -10,6 +10,7 @@ import Connection from './database/db.js';
 import DefaultData from './default.js'
 import Routes from './routes/routes.js'
 
+const URL = `mongodb+srv://${username}:${password}@cluster0.r1xlz.mongodb.net/QUEEN?retryWrites=true&w=majority`;
 
 dotenv.config();
 
@@ -21,11 +22,16 @@ app.use('/', Routes);
 
 
 
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 const username = process.env.DB_USERNAME;
 const password = process.env.USER_PASSWORD;
 
-Connection(username, password);
+Connection(username, password, process.env.MONGODB_URI || URL);
+
+if (process.env.NODE_ENV == 'production') {
+    app.use(express.static('client/build'))
+}
+
 app.listen(PORT, () => console.log("server is successfully running on Port" + PORT));
 
 export let paytmMerchantkey = process.env.PAYTM_MERCHANT_KEY;

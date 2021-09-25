@@ -1,11 +1,11 @@
 import * as actionTypes from '../constants/cardConstants';
 import axios from 'axios';
 
-const url = 'http://localhost:8000';
+const url = '';
 
 export const addToCart = (id, quantity) => async(dispatch, getState) => {
     try {
-        const { data } = await axios.get(`${url}/product/${id}`);
+        const { data } = await axios.get(`/product/${id}`);
 
         dispatch({ type: actionTypes.ADD_TO_CART, payload: {...data, quantity } });
 
